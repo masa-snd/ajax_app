@@ -7,8 +7,12 @@ class PostsController < ApplicationController
   # end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index
+    # Postモデルへcontentを保存、checkedの値の初期値はfalse(偽)とし、そのデータをpostという変数に代入
+    post = Post.create(content: params[:content], checked: false)
+    # JSON形式でメモデータをJSに返す
+    render json:{ post: post }
+    # Post.create(content: params[:content])
+    # redirect_to action: :index
   end
 
   def checked
@@ -21,5 +25,6 @@ class PostsController < ApplicationController
 
     item = Post.find(params[:id])
     render json: { post: item }
+    render :new
   end
 end
