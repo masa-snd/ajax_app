@@ -3,6 +3,10 @@ function memo() {
   const submit = document.getElementById("submit");
   // 投稿するボタンを「click」した場合に実行される関数を定義
   submit.addEventListener("click", (e) => {
+    
+    // これでイベント発火した時の(e)の中身をブラウザ上で確認できる
+    // console.log(e)
+
     // フォームに入力された値を取得できるオブジェクト（FormData）を生成している
     const formData = new FormData(document.getElementById("form"));
     // 非同期通信を実装するために必要なXMLHttpRequestのオブジェクトを生成
